@@ -1,0 +1,116 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Base styles */
+html, body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* Variables */
+:root {
+  /* Cores principais - Tons de azul turquesa para um tema mais relacionado a animais de estimação */
+  --primary: #4ECDC4;
+  --primary-light: #7DDFD8;
+  --primary-dark: #2A9D8F;
+  --primary-rgb: 78, 205, 196; /* Valor RGB da cor primária para uso com rgba() */
+  
+  /* Cores secundárias - Tons suaves e acolhedores */
+  --secondary: #FFE5D9;
+  --secondary-dark: #FFD6BA;
+  --secondary-light: #FFF1E6;
+  
+  /* Cores de interface */
+  --background: #ffffff;
+  --foreground: #1a202c;
+  --muted: #718096;
+  --muted-foreground: #a0aec0;
+  --border: #e2e8f0;
+  --input: #edf2f7;
+  --ring: #4ECDC4;
+  --radius: 0.5rem;
+  
+  /* Cores de destaque */
+  --accent: #FF8364;
+  --accent-light: #FFA48E;
+  --accent-dark: #E76F51;
+}
+
+/* Utility classes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.shadow-card {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+/* Button styles */
+button {
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--primary-dark);
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+}
+
+/* Form elements */
+input, select, textarea {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  background-color: var(--input);
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Responsive utilities */
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+  
+  .md\:grid {
+    display: grid;
+  }
+}

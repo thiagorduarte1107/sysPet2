@@ -1,0 +1,142 @@
+.products-container {
+  padding: 4rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Barra de busca */
+.search-container {
+  position: relative;
+  max-width: 36rem;
+  margin: 0 auto 2.5rem;
+}
+
+.search-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 0.75rem;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--background);
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.5);
+}
+
+/* Layout principal */
+.products-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.products-sidebar {
+  width: 100%;
+}
+
+.products-content {
+  flex-grow: 1;
+}
+
+@media (min-width: 1024px) {
+  .products-layout {
+    flex-direction: row;
+  }
+  
+  .products-sidebar {
+    width: 16rem;
+    flex-shrink: 0;
+  }
+}
+
+/* Cabeçalho de resultados */
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.products-count {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.products-count-highlight {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.products-sort {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--background);
+  font-size: 0.875rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Grid de produtos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mensagem de sem resultados */
+.no-results {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.no-results-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.no-results-message {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.product-price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.product-description {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}

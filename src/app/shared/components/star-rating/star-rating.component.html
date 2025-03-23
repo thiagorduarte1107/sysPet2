@@ -1,0 +1,11 @@
+<div class="star-rating" [ngClass]="size">
+  <div class="stars">
+    <span *ngFor="let star of stars; let i = index" class="star">
+      <i class="icon-star" [ngClass]="{
+        'filled': star.filled,
+        'half': star.half
+      }"></i>
+    </span>
+  </div>
+  <span *ngIf="showNumber" class="rating-number">{{ rating.toFixed(1) }}</span>
+</div>

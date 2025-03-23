@@ -1,0 +1,76 @@
+<div class="customers-container">
+  <div class="customers-header">
+    <h1>Clientes & Pets</h1>
+    <button class="btn btn-primary add-customer-btn">
+      <i class="fas fa-plus"></i> Adicionar Novo Cliente
+    </button>
+  </div>
+
+  <div class="customers-content">
+    <div class="customers-panel">
+      <h2>Gerenciamento de Clientes</h2>
+      
+      <div class="filter-controls">
+        <div class="search-box">
+          <input type="text" placeholder="Buscar clientes..." (input)="onSearch($event)" class="search-input">
+          <i class="fas fa-search search-icon"></i>
+          <button class="filter-button">
+            <i class="fas fa-filter"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="filter-tabs">
+        <button class="filter-tab" [class.active]="activeFilter === 'all'" (click)="setFilter('all')">
+          Todos os Clientes
+        </button>
+        <button class="filter-tab" [class.active]="activeFilter === 'active'" (click)="setFilter('active')">
+          Ativos
+        </button>
+        <button class="filter-tab" [class.active]="activeFilter === 'inactive'" (click)="setFilter('inactive')">
+          Inativos
+        </button>
+      </div>
+
+      <div class="customer-list">
+        <div class="customer-item" *ngFor="let customer of filteredCustomers">
+          <div class="customer-avatar">
+            <div class="avatar-placeholder" [ngClass]="{'inactive-avatar': customer.status === 'inactive'}">
+              {{ customer.name.charAt(0) }}{{ customer.name.split(' ')[1]?.charAt(0) || '' }}
+            </div>
+          </div>
+          
+          <div class="customer-info">
+            <div class="customer-name-status">
+              <h3 class="customer-name">{{ customer.name }}</h3>
+              <span class="status-badge" [ngClass]="{'active': customer.status === 'active', 'inactive': customer.status === 'inactive'}">
+                {{ customer.status === 'active' ? 'active' : 'inactive' }}
+              </span>
+            </div>
+            
+            <div class="customer-details">
+              <div class="customer-contact">
+                <span class="customer-email">{{ customer.email }}</span>
+                <span class="customer-phone">{{ customer.phone }}</span>
+              </div>
+              
+              <div class="customer-pets">
+                <i class="fas fa-paw"></i> {{ getPetCount(customer) }} {{ getPetCount(customer) === 1 ? 'pet' : 'pets' }}
+              </div>
+            </div>
+          </div>
+          
+          <div class="customer-actions">
+            <button class="btn btn-outline-primary view-profile-btn" [routerLink]="['/customers', customer.id]">Ver Perfil</button>
+            <button class="btn btn-outline-secondary manage-pets-btn" [routerLink]="['/customers', customer.id]">Gerenciar Pets</button>
+          </div>
+        </div>
+
+        <div class="no-customers" *ngIf="filteredCustomers.length === 0">
+          <i class="fas fa-search"></i>
+          <p>Nenhum cliente encontrado com os filtros atuais.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

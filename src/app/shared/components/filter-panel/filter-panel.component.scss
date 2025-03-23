@@ -1,0 +1,162 @@
+// Estilização para o slider de preço
+.price-slider-container {
+  position: relative;
+  padding: 10px 0;
+}
+
+.price-slider {
+  height: 6px;
+  border-radius: 10px;
+  appearance: none;
+  background: #e9ecef;
+  outline: none;
+  
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  &::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Estilização para os checkboxes
+.custom-checkbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+  
+  &:hover {
+    border-color: var(--primary-light);
+  }
+}
+
+// Estilização para os botões de categoria
+button {
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  
+  &:hover:not(.active) {
+    background-color: #f1f5f9;
+  }
+}
+
+// Estilos adicionais para melhorar a aparência geral
+h3 {
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+// Melhorias para o layout do painel de filtro
+.bg-primary-light {
+  background-color: #edf7f7;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.text-gray-700 {
+  color: #374151;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+// Melhorias para o painel de filtro
+.bg-background {
+  background-color: white;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.shadow-card {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+// Melhorias para o slider de preço
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,274 @@
+@import '../../../../styles/variables';
+
+.customer-details-container {
+  padding: 2rem;
+  
+  .customer-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    
+    .back-button {
+      a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        
+        i {
+          font-size: 0.75rem;
+        }
+      }
+    }
+    
+    .customer-header-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      
+      .customer-avatar {
+        .avatar-placeholder {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          background-color: var(--primary);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          font-weight: 600;
+          
+          &.inactive-avatar {
+            background-color: var(--gray-400);
+          }
+        }
+      }
+      
+      .customer-title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        
+        h1 {
+          font-size: 1.75rem;
+          font-weight: 600;
+          margin: 0;
+          color: var(--primary);
+        }
+        
+        .status-badge {
+          padding: 0.25rem 0.75rem;
+          border-radius: 1rem;
+          font-size: 0.75rem;
+          font-weight: 500;
+          
+          &.active {
+            background-color: var(--success-light);
+            color: var(--success);
+          }
+          
+          &.inactive {
+            background-color: var(--gray-200);
+            color: var(--gray-600);
+          }
+        }
+      }
+    }
+  }
+  
+  .customer-details-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    
+    .customer-info-panel, .pets-panel {
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      
+      .panel-header {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--gray-200);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        h2 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin: 0;
+          color: var(--gray-800);
+        }
+        
+        .add-pet-btn {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem 1rem;
+          font-size: 0.875rem;
+          
+          i {
+            font-size: 0.75rem;
+          }
+        }
+      }
+      
+      .panel-content {
+        padding: 1.5rem;
+        
+        .info-group {
+          margin-bottom: 1.5rem;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+          
+          .info-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+          }
+          
+          .info-value {
+            font-size: 1rem;
+            color: var(--gray-800);
+          }
+        }
+        
+        .pet-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 1.5rem;
+          
+          .pet-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--gray-200);
+            transition: all 0.2s;
+            
+            &:hover {
+              border-color: var(--primary-light);
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            }
+            
+            .pet-icon {
+              width: 3rem;
+              height: 3rem;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.5rem;
+              
+              &.cachorro {
+                background-color: var(--primary-light);
+                color: var(--primary);
+              }
+              
+              &.gato {
+                background-color: var(--secondary-light);
+                color: var(--secondary);
+              }
+            }
+            
+            .pet-info {
+              flex: 1;
+              
+              .pet-name {
+                font-size: 1.125rem;
+                font-weight: 600;
+                margin: 0 0 0.5rem 0;
+                color: var(--gray-800);
+              }
+              
+              .pet-details {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                font-size: 0.875rem;
+                color: var(--gray-600);
+                
+                .pet-type, .pet-breed, .pet-age {
+                  position: relative;
+                  
+                  &:not(:last-child)::after {
+                    content: '•';
+                    position: absolute;
+                    right: -0.5rem;
+                  }
+                }
+              }
+            }
+            
+            .pet-actions {
+              display: flex;
+              gap: 0.5rem;
+              
+              .pet-action-btn {
+                width: 2rem;
+                height: 2rem;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0.5rem;
+                
+                i {
+                  font-size: 0.875rem;
+                }
+              }
+            }
+          }
+        }
+        
+        .no-pets {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 3rem 0;
+          text-align: center;
+          
+          i {
+            font-size: 3rem;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+          }
+          
+          p {
+            font-size: 1rem;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+  
+  .loading-spinner {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: var(--gray-600);
+  }
+}

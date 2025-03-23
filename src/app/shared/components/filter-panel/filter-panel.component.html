@@ -1,0 +1,77 @@
+<div class="bg-background rounded-xl shadow-card p-6">
+  <h3 class="text-lg font-semibold">Categorias</h3>
+  <div class="space-y-2 mt-3">
+    <div *ngFor="let category of categories" class="flex items-center">
+      <input 
+        [id]="'category-' + category" 
+        type="checkbox" 
+        [checked]="activeCategory === category"
+        (change)="onCategoryChange(category)"
+        class="custom-checkbox h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" 
+      />
+      <label [for]="'category-' + category" class="ml-2 text-sm text-gray-700">
+        {{ category }}
+      </label>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <h3 class="text-lg font-semibold">Filtrar por</h3>
+    
+    <div class="space-y-6 mt-3">
+      <div>
+        <h4 class="font-medium">Faixa de Preço</h4>
+        <div class="price-slider-container mt-3">
+          <input 
+            type="range" 
+            [min]="minPrice" 
+            [max]="maxPrice" 
+            [value]="selectedPrice"
+            (input)="onPriceChange($event)"
+            class="price-slider w-full appearance-none cursor-pointer" 
+          />
+        </div>
+        <div class="flex justify-between mt-2">
+          <span class="text-sm text-gray-600">R${{ minPrice }}</span>
+          <span class="text-sm text-gray-600">R${{ maxPrice }}</span>
+        </div>
+      </div>
+      
+      <div>
+        <h4 class="font-medium">Avaliação</h4>
+        <div class="space-y-2 mt-3">
+          <div *ngFor="let rating of ratingOptions" class="flex items-center">
+            <input 
+              [id]="'rating-' + rating" 
+              type="checkbox" 
+              [checked]="isRatingSelected(rating)"
+              (change)="onRatingChange(rating)"
+              class="custom-checkbox h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" 
+            />
+            <label [for]="'rating-' + rating" class="ml-2 text-sm text-gray-700">
+              {{ rating }} estrelas ou mais
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="showDurationFilter">
+        <h4 class="font-medium">Duração</h4>
+        <div class="space-y-2 mt-3">
+          <div *ngFor="let duration of durationOptions" class="flex items-center">
+            <input 
+              [id]="'duration-' + duration" 
+              type="checkbox" 
+              [checked]="isDurationSelected(duration)"
+              (change)="onDurationChange(duration)"
+              class="custom-checkbox h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" 
+            />
+            <label [for]="'duration-' + duration" class="ml-2 text-sm text-gray-700">
+              {{ duration }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

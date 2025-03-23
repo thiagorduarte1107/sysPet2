@@ -1,0 +1,58 @@
+.star-rating {
+  display: flex;
+  align-items: center;
+}
+
+.stars {
+  display: flex;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-star {
+  color: #E0E0E0;
+  transition: color 0.2s ease;
+}
+
+.icon-star.filled {
+  color: #FFB800;
+}
+
+.icon-star.half {
+  position: relative;
+}
+
+.icon-star.half:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, #FFB800 50%, transparent 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rating-number {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Tamanhos */
+.small .icon-star {
+  font-size: 0.875rem;
+}
+
+.medium .icon-star {
+  font-size: 1rem;
+}
+
+.large .icon-star {
+  font-size: 1.25rem;
+}

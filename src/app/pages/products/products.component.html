@@ -1,0 +1,71 @@
+<div class="products-container">
+  <app-section-heading 
+    title="Produtos de Qualidade para Seu Pet" 
+    subtitle="Oferecemos uma seleção premium de alimentos, acessórios e brinquedos para o bem-estar do seu animal de estimação."
+  ></app-section-heading>
+  
+  <!-- Barra de busca -->
+  <div class="search-container">
+    <div class="search-icon">
+      <i class="icon-search"></i>
+    </div>
+    <input
+      type="text"
+      placeholder="Buscar produtos..."
+      [value]="searchQuery"
+      (input)="onSearch($event)"
+      class="search-input"
+    />
+  </div>
+
+  <div class="products-layout">
+    <!-- Sidebar com filtros -->
+    <div class="products-sidebar">
+      <app-filter-panel
+        [activeCategory]="activeCategory"
+        [categories]="['Todos', 'Alimentos', 'Brinquedos', 'Acessórios', 'Higiene', 'Roupas', 'Camas', 'Medicamentos']"
+        [showDurationFilter]="false"
+        (categoryChange)="onCategoryChange($event)"
+        (priceRangeChange)="onPriceRangeChange($event)"
+        (ratingFilterChange)="onRatingFilterChange($event)"
+      ></app-filter-panel>
+    </div>
+    
+    <!-- Lista de produtos -->
+    <div class="products-content">
+      <!-- Informações de resultados e ordenação -->
+      <div class="products-header" *ngIf="filteredProducts.length > 0">
+        <p class="products-count">
+          Exibindo <span class="products-count-highlight">{{ filteredProducts.length }}</span> produtos
+        </p>
+        <select
+          class="products-sort"
+          [(ngModel)]="sortOption"
+          (change)="onSortChange()"
+        >
+          <option value="relevance">Ordenar por: Relevância</option>
+          <option value="price-asc">Preço: Menor para Maior</option>
+          <option value="price-desc">Preço: Maior para Menor</option>
+          <option value="rating">Avaliação</option>
+          <option value="popular">Mais Populares</option>
+        </select>
+      </div>
+      
+      <!-- Mensagem quando não há resultados -->
+      <div class="no-results" *ngIf="filteredProducts.length === 0">
+        <h3 class="no-results-title">Nenhum produto encontrado</h3>
+        <p class="no-results-message">
+          Tente ajustar seus filtros ou termos de busca.
+        </p>
+      </div>
+      
+      <!-- Grid de produtos -->
+      <div class="products-grid" *ngIf="filteredProducts.length > 0">
+        <app-product-card 
+          *ngFor="let product of filteredProducts" 
+          [product]="product"
+        ></app-product-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="bg-background rounded-xl shadow-card p-6">
+  <h3 class="text-lg font-semibold mb-4">Categorias</h3>
+  <ul class="space-y-2">
+    <li *ngFor="let category of categories">
+      <button
+        (click)="onCategoryChange(category)"
+        class="w-full text-left py-2 px-3 rounded-lg transition-colors"
+        [ngClass]="{
+          'bg-primary-light text-primary font-medium': activeCategory === category,
+          'hover-bg-secondary': activeCategory !== category
+        }"
+      >
+        {{ category }}
+      </button>
+    </li>
+  </ul>
+
+  <div class="mt-8">
+    <h3 class="text-lg font-semibold mb-4">Filtrar por</h3>
+    
+    <div class="space-y-4">
+      <div>
+        <h4 class="font-medium mb-2">Faixa de Preço</h4>
+        <div class="flex items-center space-x-4">
+          <input 
+            type="range" 
+            min="0" 
+            max="300" 
+            class="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer" 
+          />
+        </div>
+        <div class="flex justify-between mt-2">
+          <span class="text-sm text-muted">R$0</span>
+          <span class="text-sm text-muted">R$300</span>
+        </div>
+      </div>
+      
+      <div>
+        <h4 class="font-medium mb-2">Avaliação</h4>
+        <div class="space-y-1">
+          <div *ngFor="let rating of [5, 4, 3, 2, 1]" class="flex items-center">
+            <input 
+              [id]="'rating-' + rating" 
+              type="checkbox" 
+              class="h-4 w-4 rounded border-border text-primary focus-ring-primary" 
+            />
+            <label [for]="'rating-' + rating" class="ml-2 text-sm">
+              {{ rating }} estrelas ou mais
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-medium mb-2">Duração</h4>
+        <div class="space-y-1">
+          <div *ngFor="let duration of ['30 min', '1 hora', '2 horas', '3+ horas']" class="flex items-center">
+            <input 
+              [id]="'duration-' + duration" 
+              type="checkbox" 
+              class="h-4 w-4 rounded border-border text-primary focus-ring-primary" 
+            />
+            <label [for]="'duration-' + duration" class="ml-2 text-sm">
+              {{ duration }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

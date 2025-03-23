@@ -1,0 +1,38 @@
+<header class="navbar">
+  <div class="container">
+    <div class="navbar-content">
+      <app-logo size="md"></app-logo>
+
+      <button class="menu-toggle" (click)="toggleMenu()" *ngIf="isMobile">
+        <span class="icon" [ngClass]="{'icon-menu': !isMenuOpen, 'icon-x': isMenuOpen}"></span>
+      </button>
+
+      <nav class="nav" [ngClass]="{'nav-open': isMenuOpen}">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/products" routerLinkActive="active" (click)="closeMenu()">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/appointments" routerLinkActive="active" (click)="closeMenu()">Agendamentos</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/dashboard" routerLinkActive="active" (click)="closeMenu()">Dashboard</a>
+          </li>
+
+        </ul>
+        <div class="nav-actions">
+          <a routerLink="/login" class="btn btn-primary" (click)="closeMenu()">Login</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

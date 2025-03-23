@@ -1,0 +1,29 @@
+<section class="testimonials-section">
+  <div class="container">
+    <app-section-heading
+      title="O Que Nossos Clientes Dizem"
+      subtitle="Ouça o que dizem os donos de pets que experimentaram nossos serviços de cuidado premium"
+      [centered]="true"
+    ></app-section-heading>
+    
+    <div class="testimonials-grid">
+      <div *ngFor="let testimonial of testimonials" class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">
+            <img [src]="testimonial.image" [alt]="testimonial.name" />
+          </div>
+          <div class="testimonial-info">
+            <h3 class="testimonial-name">{{ testimonial.name }}</h3>
+            <p class="testimonial-pet">{{ testimonial.pet }} - {{ testimonial.petType }}</p>
+            <div class="testimonial-rating">
+              <span *ngFor="let star of getStarArray(testimonial.rating)" class="star">
+                <i class="icon-star"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <p class="testimonial-comment">{{ testimonial.comment }}</p>
+      </div>
+    </div>
+  </div>
+</section>

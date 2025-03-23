@@ -1,0 +1,72 @@
+<div class="services-container">
+  <app-section-heading 
+    title="Serviços de Qualidade para Seu Pet" 
+    subtitle="Oferecemos os melhores cuidados para o seu animal de estimação com profissionais qualificados e apaixonados."
+  ></app-section-heading>
+  
+  <!-- Barra de busca -->
+  <div class="search-container">
+    <div class="search-icon">
+      <i class="icon-search"></i>
+    </div>
+    <input
+      type="text"
+      placeholder="Buscar serviços..."
+      [value]="searchQuery"
+      (input)="onSearch($event)"
+      class="search-input"
+    />
+  </div>
+
+  <div class="services-layout">
+    <!-- Sidebar com filtros -->
+    <div class="services-sidebar">
+      <app-filter-panel
+        [activeCategory]="activeCategory"
+        [categories]="['Todos', 'Banho e Tosa', 'Veterinário', 'Taxi Dog', 'Hospedagem', 'Adestramento', 'Spa', 'Creche']"
+        [showDurationFilter]="true"
+        (categoryChange)="onCategoryChange($event)"
+        (priceRangeChange)="onPriceRangeChange($event)"
+        (ratingFilterChange)="onRatingFilterChange($event)"
+        (durationFilterChange)="onDurationFilterChange($event)"
+      ></app-filter-panel>
+    </div>
+    
+    <!-- Lista de serviços -->
+    <div class="services-content">
+      <!-- Informações de resultados e ordenação -->
+      <div class="services-header" *ngIf="filteredServices.length > 0">
+        <p class="services-count">
+          Exibindo <span class="services-count-highlight">{{ filteredServices.length }}</span> serviços
+        </p>
+        <select
+          class="services-sort"
+          [(ngModel)]="sortOption"
+          (change)="onSortChange()"
+        >
+          <option value="relevance">Ordenar por: Relevância</option>
+          <option value="price-asc">Preço: Menor para Maior</option>
+          <option value="price-desc">Preço: Maior para Menor</option>
+          <option value="rating">Avaliação</option>
+          <option value="popular">Mais Populares</option>
+        </select>
+      </div>
+      
+      <!-- Mensagem quando não há resultados -->
+      <div class="no-results" *ngIf="filteredServices.length === 0">
+        <h3 class="no-results-title">Nenhum serviço encontrado</h3>
+        <p class="no-results-message">
+          Tente ajustar seus filtros ou termos de busca.
+        </p>
+      </div>
+      
+      <!-- Grid de serviços -->
+      <div class="services-grid" *ngIf="filteredServices.length > 0">
+        <app-service-card 
+          *ngFor="let service of filteredServices" 
+          [service]="service"
+        ></app-service-card>
+      </div>
+    </div>
+  </div>
+</div>

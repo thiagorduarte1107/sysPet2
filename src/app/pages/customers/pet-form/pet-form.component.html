@@ -1,0 +1,75 @@
+<div class="pet-form-container">
+  <div class="pet-form-header">
+    <div class="back-button">
+      <a [routerLink]="['/customers', customerId]" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Voltar para Cliente
+      </a>
+    </div>
+    
+    <div class="form-title">
+      <h1>{{ isEditMode ? 'Editar' : 'Adicionar' }} Pet</h1>
+    </div>
+  </div>
+  
+  <div class="pet-form-content">
+    <div class="form-panel">
+      <div class="panel-header">
+        <h2>Informações do Pet</h2>
+        <div class="customer-info" *ngIf="customer">
+          <span class="customer-label">Cliente:</span>
+          <span class="customer-name">{{ customer.name }}</span>
+        </div>
+      </div>
+      
+      <div class="panel-content">
+        <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Nome do Pet *</label>
+            <input type="text" id="name" formControlName="name" class="form-control" placeholder="Digite o nome do pet">
+            <div class="error-message" *ngIf="petForm.get('name')?.invalid && petForm.get('name')?.touched">
+              Nome do pet é obrigatório
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="type">Tipo de Animal *</label>
+            <select id="type" formControlName="type" class="form-control">
+              <option value="Cachorro">Cachorro</option>
+              <option value="Gato">Gato</option>
+              <option value="Pássaro">Pássaro</option>
+              <option value="Roedor">Roedor</option>
+              <option value="Réptil">Réptil</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="breed">Raça</label>
+            <input type="text" id="breed" formControlName="breed" class="form-control" placeholder="Digite a raça do pet">
+          </div>
+          
+          <div class="form-group">
+            <label for="age">Idade (anos)</label>
+            <input type="number" id="age" formControlName="age" class="form-control" placeholder="Digite a idade do pet" min="0" max="30">
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline-secondary" (click)="onCancel()">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-primary" [disabled]="petForm.invalid">
+              {{ isEditMode ? 'Atualizar' : 'Adicionar' }} Pet
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="!customer">
+  <div class="loading-spinner">
+    <i class="fas fa-spinner fa-spin"></i>
+  </div>
+  <p>Carregando informações...</p>
+</div>

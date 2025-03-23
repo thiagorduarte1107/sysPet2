@@ -1,0 +1,102 @@
+<div class="customer-details-container" *ngIf="customer">
+  <div class="customer-details-header">
+    <div class="back-button">
+      <a [routerLink]="['/customers']" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Voltar para Clientes
+      </a>
+    </div>
+    
+    <div class="customer-header-info">
+      <div class="customer-avatar">
+        <div class="avatar-placeholder" [ngClass]="{'inactive-avatar': customer.status === 'inactive'}">
+          {{ customer.name.charAt(0) }}{{ customer.name.split(' ')[1]?.charAt(0) || '' }}
+        </div>
+      </div>
+      
+      <div class="customer-title">
+        <h1>{{ customer.name }}</h1>
+        <span class="status-badge" [ngClass]="{'active': customer.status === 'active', 'inactive': customer.status === 'inactive'}">
+          {{ customer.status === 'active' ? 'Ativo' : 'Inativo' }}
+        </span>
+      </div>
+    </div>
+    
+    <div class="customer-actions">
+      <button class="btn btn-outline-primary">
+        <i class="fas fa-edit"></i> Editar Cliente
+      </button>
+    </div>
+  </div>
+  
+  <div class="customer-details-content">
+    <div class="customer-info-panel">
+      <div class="panel-header">
+        <h2>Informações do Cliente</h2>
+      </div>
+      
+      <div class="panel-content">
+        <div class="info-group">
+          <div class="info-label">Email</div>
+          <div class="info-value">{{ customer.email }}</div>
+        </div>
+        
+        <div class="info-group">
+          <div class="info-label">Telefone</div>
+          <div class="info-value">{{ customer.phone }}</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="pets-panel">
+      <div class="panel-header">
+        <h2>Pets</h2>
+        <button class="btn btn-primary add-pet-btn" [routerLink]="['/customers', customerId, 'pets', 'new']">
+          <i class="fas fa-plus"></i> Adicionar Pet
+        </button>
+      </div>
+      
+      <div class="panel-content">
+        <div class="pet-list" *ngIf="customer.pets && customer.pets.length > 0">
+          <div class="pet-card" *ngFor="let pet of customer.pets">
+            <div class="pet-icon" [ngClass]="pet.type.toLowerCase()">
+              <i class="fas" [ngClass]="pet.type === 'Cachorro' ? 'fa-dog' : 'fa-cat'"></i>
+            </div>
+            
+            <div class="pet-info">
+              <h3 class="pet-name">{{ pet.name }}</h3>
+              <div class="pet-details">
+                <span class="pet-type">{{ pet.type }}</span>
+                <span class="pet-breed" *ngIf="pet.breed">{{ pet.breed }}</span>
+                <span class="pet-age" *ngIf="pet.age">{{ pet.age }} {{ pet.age === 1 ? 'ano' : 'anos' }}</span>
+              </div>
+            </div>
+            
+            <div class="pet-actions">
+              <button class="btn btn-outline-primary pet-action-btn" [routerLink]="['/customers', customerId, 'pets', pet.id, 'edit']">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-outline-danger pet-action-btn" (click)="deletePet(pet)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="no-pets" *ngIf="!customer.pets || customer.pets.length === 0">
+          <i class="fas fa-paw"></i>
+          <p>Este cliente ainda não possui pets cadastrados.</p>
+          <button class="btn btn-primary" [routerLink]="['/customers', customerId, 'pets', 'new']">
+            <i class="fas fa-plus"></i> Adicionar Primeiro Pet
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="!customer">
+  <div class="loading-spinner">
+    <i class="fas fa-spinner fa-spin"></i>
+  </div>
+  <p>Carregando informações do cliente...</p>
+</div>

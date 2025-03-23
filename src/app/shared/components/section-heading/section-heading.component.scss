@@ -1,0 +1,34 @@
+/* Section Heading Component Styles */
+
+:host {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.section-heading {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heading-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.heading-subtitle {
+  font-size: 1.125rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .heading-title {
+    font-size: 1.75rem;
+  }
+  
+  .heading-subtitle {
+    font-size: 1rem;
+  }
+}

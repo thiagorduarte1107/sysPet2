@@ -1,0 +1,333 @@
+<div class="dashboard-container">
+  <div class="dashboard-content">
+    <!-- Sidebar de navegação -->
+    <div class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <h3>Animal World</h3>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-item active">
+          <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <i class="fas fa-home"></i> Painel
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a routerLink="/dashboard/customers" routerLinkActive="active">
+            <i class="fas fa-users"></i> Clientes & Pets
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a routerLink="/dashboard/appointments" routerLinkActive="active">
+            <i class="fas fa-calendar-alt"></i> Agendamentos
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a routerLink="/dashboard/loyalty" routerLinkActive="active">
+            <i class="fas fa-award"></i> Programa de Fidelidade
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a routerLink="/dashboard/inventory" routerLinkActive="active">
+            <i class="fas fa-box"></i> Estoque
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a routerLink="/dashboard/checkout" routerLinkActive="active">
+            <i class="fas fa-shopping-cart"></i> Checkout
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a routerLink="/dashboard/settings" routerLinkActive="active">
+            <i class="fas fa-cog"></i> Configurações
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a routerLink="/dashboard/help" routerLinkActive="active">
+            <i class="fas fa-question-circle"></i> Ajuda
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a routerLink="/logout" routerLinkActive="active">
+            <i class="fas fa-sign-out-alt"></i> Sair
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="dashboard-main">
+      <!-- Cabeçalho com informações do usuário -->
+      <div class="dashboard-header">
+        <div class="user-info">
+          <span class="welcome-text">Olá, João Silva</span>
+          <span class="user-role">Administrador</span>
+        </div>
+      </div>
+
+      <!-- Voltar link -->
+      <div class="back-link">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+
+      <!-- Cards de estatísticas -->
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Receita Total</span>
+            <i class="fas fa-dollar-sign stat-icon"></i>
+          </div>
+          <div class="stat-value">R$ 12.548,00</div>
+          <div class="stat-footer">
+            <span class="stat-change positive">+12,5% Comparado ao mês anterior</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Clientes Ativos</span>
+            <i class="fas fa-users stat-icon"></i>
+          </div>
+          <div class="stat-value">324</div>
+          <div class="stat-footer">
+            <span class="stat-change positive">+5,2% Comparado ao mês anterior</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Agendamentos</span>
+            <i class="fas fa-calendar-check stat-icon"></i>
+          </div>
+          <div class="stat-value">156</div>
+          <div class="stat-footer">
+            <span class="stat-change positive">+3,1% Agendados esta semana</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Vendas de Produtos</span>
+            <i class="fas fa-shopping-bag stat-icon"></i>
+          </div>
+          <div class="stat-value">86</div>
+          <div class="stat-footer">
+            <span class="stat-change positive">+2,5% Comparado à semana anterior</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Widgets -->
+      <div class="dashboard-widgets">
+        <!-- Widget de agendamentos do dia -->
+        <div class="widget appointments-widget">
+          <div class="widget-header">
+            <div class="widget-title">
+              <h3>Agendamentos de Hoje</h3>
+              <span class="widget-date"><i class="fas fa-calendar"></i> Saturday, March 22</span>
+            </div>
+          </div>
+          <div class="widget-content">
+            <div class="appointment-item">
+              <div class="appointment-avatar">
+                <img src="assets/images/avatar-placeholder.png" alt="Maria Silva" class="avatar">
+              </div>
+              <div class="appointment-details">
+                <div class="appointment-client">
+                  <span class="client-name">Maria Silva</span>
+                  <span class="pet-info">Rex (Labrador)</span>
+                </div>
+                <div class="appointment-time">
+                  <i class="fas fa-clock"></i> 09:00 • Banho e Tosa
+                </div>
+              </div>
+              <div class="appointment-status scheduled">scheduled</div>
+            </div>
+
+            <div class="appointment-item">
+              <div class="appointment-avatar">
+                <img src="assets/images/avatar-placeholder.png" alt="João Pereira" class="avatar">
+              </div>
+              <div class="appointment-details">
+                <div class="appointment-client">
+                  <span class="client-name">João Pereira</span>
+                  <span class="pet-info">Luna (Gato)</span>
+                </div>
+                <div class="appointment-time">
+                  <i class="fas fa-clock"></i> 10:30 • Vacinação
+                </div>
+              </div>
+              <div class="appointment-status in-progress">in-progress</div>
+            </div>
+
+            <div class="appointment-item">
+              <div class="appointment-avatar">
+                <img src="assets/images/avatar-placeholder.png" alt="Ana Costa" class="avatar">
+              </div>
+              <div class="appointment-details">
+                <div class="appointment-client">
+                  <span class="client-name">Ana Costa</span>
+                  <span class="pet-info">Mia (Persa)</span>
+                </div>
+                <div class="appointment-time">
+                  <i class="fas fa-clock"></i> 11:45 • Serviço de Tosa
+                </div>
+              </div>
+              <div class="appointment-status completed">completed</div>
+            </div>
+
+            <div class="appointment-item">
+              <div class="appointment-avatar">
+                <img src="assets/images/avatar-placeholder.png" alt="Carlos Mendes" class="avatar">
+              </div>
+              <div class="appointment-details">
+                <div class="appointment-client">
+                  <span class="client-name">Carlos Mendes</span>
+                  <span class="pet-info">Thor (Rottweiler)</span>
+                </div>
+                <div class="appointment-time">
+                  <i class="fas fa-clock"></i> 14:00 • Banho e Tosa
+                </div>
+              </div>
+              <div class="appointment-status scheduled">scheduled</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Widget de vendas recentes -->
+        <div class="widget vendas-widget">
+          <div class="widget-header">
+            <div class="widget-title">
+              <h3>Vendas Recentes</h3>
+              <div class="widget-tabs">
+                <span class="tab active">Vendas Totais</span>
+                <span class="tab">Serviços</span>
+                <span class="tab">Produtos</span>
+              </div>
+            </div>
+          </div>
+          <div class="widget-content">
+            <div class="vendas-total">
+              <span class="vendas-valor">R$ 490,48</span>
+            </div>
+            
+            <div class="vendas-recentes">
+              <div class="venda-item">
+                <div class="venda-avatar">
+                  <img src="assets/images/avatar-placeholder.png" alt="Maria Silva" class="avatar">
+                </div>
+                <div class="venda-details">
+                  <span class="venda-cliente">Maria Silva</span>
+                  <span class="venda-produto">Ração Premium para Cães</span>
+                  <span class="venda-data">2023-06-15 14:30</span>
+                </div>
+                <div class="venda-valor">R$ 89,99</div>
+              </div>
+
+              <div class="venda-item">
+                <div class="venda-avatar">
+                  <img src="assets/images/avatar-placeholder.png" alt="João Santos" class="avatar">
+                </div>
+                <div class="venda-details">
+                  <span class="venda-cliente">João Santos</span>
+                  <span class="venda-produto">Serviço Completo de Banho e Tosa</span>
+                  <span class="venda-data">2023-06-15 13:15</span>
+                </div>
+                <div class="venda-valor">R$ 120,00</div>
+              </div>
+
+              <div class="venda-item">
+                <div class="venda-avatar">
+                  <img src="assets/images/avatar-placeholder.png" alt="Ana Oliveira" class="avatar">
+                </div>
+                <div class="venda-details">
+                  <span class="venda-cliente">Ana Oliveira</span>
+                  <span class="venda-produto">Pacote de Brinquedos para Gatos</span>
+                  <span class="venda-data">2023-06-15 11:45</span>
+                </div>
+                <div class="venda-valor">R$ 45,50</div>
+              </div>
+
+              <div class="venda-item">
+                <div class="venda-avatar">
+                  <img src="assets/images/avatar-placeholder.png" alt="Carlos Mendes" class="avatar">
+                </div>
+                <div class="venda-details">
+                  <span class="venda-cliente">Carlos Mendes</span>
+                  <span class="venda-produto">Serviço de Tosa Pet</span>
+                  <span class="venda-data">2023-06-15 10:30</span>
+                </div>
+                <div class="venda-valor">R$ 35,00</div>
+              </div>
+
+              <div class="venda-item">
+                <div class="venda-avatar">
+                  <img src="assets/images/avatar-placeholder.png" alt="Lucia Ferreira" class="avatar">
+                </div>
+                <div class="venda-details">
+                  <span class="venda-cliente">Lucia Ferreira</span>
+                  <span class="venda-produto">Plano Mensal de Fidelidade</span>
+                  <span class="venda-data">2023-06-15 09:30</span>
+                </div>
+                <div class="venda-valor">R$ 199,99</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Módulos do Sistema -->
+      <h3 class="section-title">Módulos do Sistema</h3>
+      <div class="modulos-sistema">
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <div class="modulo-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h4 class="modulo-title">Gerenciamento de Clientes & Pets</h4>
+          </div>
+          <p class="modulo-description">Gerencie perfis de clientes e seus pets com rastreamento completo de histórico.</p>
+        </div>
+
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <div class="modulo-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h4 class="modulo-title">Agendamento de Serviços</h4>
+          </div>
+          <p class="modulo-description">Agende e gerencie compromissos para banho e tosa, serviços de beleza e mais.</p>
+        </div>
+
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <div class="modulo-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h4 class="modulo-title">Programa de Fidelidade</h4>
+          </div>
+          <p class="modulo-description">Acompanhe pontos dos clientes, gerencie níveis e automatize recompensas.</p>
+        </div>
+
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <div class="modulo-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h4 class="modulo-title">Checkout</h4>
+          </div>
+          <p class="modulo-description">Processe pagamentos e aplique pontos de fidelidade nas compras.</p>
+        </div>
+
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <div class="modulo-icon">
+              <i class="fas fa-box"></i>
+            </div>
+            <h4 class="modulo-title">Gestão de Estoque</h4>
+          </div>
+          <p class="modulo-description">Acompanhe produtos, gerencie níveis de estoque e analise dados de vendas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

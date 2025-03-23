@@ -1,0 +1,19 @@
+<section class="features-section">
+  <div class="container">
+    <app-section-heading
+      title="Por Que Escolher a Animal World"
+      subtitle="Fornecemos serviços premium de cuidados para pets com foco em qualidade e conveniência"
+      [centered]="true"
+    ></app-section-heading>
+    
+    <div class="features-grid">
+      <div *ngFor="let feature of features" class="feature-card">
+        <div class="feature-icon">
+          <i class="icon-{{ feature.icon }}"></i>
+        </div>
+        <h3 class="feature-title">{{ feature.title }}</h3>
+        <p class="feature-description">{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

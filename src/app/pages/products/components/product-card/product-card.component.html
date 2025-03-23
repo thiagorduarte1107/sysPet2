@@ -1,0 +1,30 @@
+<div class="product-card">
+  <div class="product-image">
+    <img [src]="product.image" [alt]="product.name" class="product-img">
+    <div class="product-category">
+      <span>{{ product.category }}</span>
+    </div>
+  </div>
+  
+  <div class="product-content">
+    <div class="product-rating">
+      <div class="rating-stars">
+        <i class="icon-star"></i>
+        <span class="rating-value">{{ product.rating }}</span>
+      </div>
+      <span class="rating-divider">·</span>
+      <span class="review-count">{{ product.reviews }} avaliações</span>
+    </div>
+    
+    <h3 class="product-title">{{ product.name }}</h3>
+    <p class="product-description">{{ product.description }}</p>
+    
+    <div class="product-footer">
+      <span class="product-price">R$ {{ product.price.toFixed(2).replace('.', ',') }}</span>
+      <button class="btn btn-primary btn-sm">
+        <i class="icon-shopping-cart"></i>
+        Adicionar
+      </button>
+    </div>
+  </div>
+</div>
