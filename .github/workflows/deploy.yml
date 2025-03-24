@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # Ajuste para "main" se for o caso
+      - origin/master  # Ajuste para "main" se for o caso
 
 jobs:
   deploy:
