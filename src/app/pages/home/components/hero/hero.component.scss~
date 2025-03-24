@@ -30,7 +30,7 @@
 }
 
 .hero-logo {
-  max-width: 650px;
+  max-width: 150px;
   height: auto;
   margin-right: 1rem;
 }
