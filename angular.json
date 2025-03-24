@@ -45,8 +45,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "deployUrl": "/pawtastic-angular/",
-              "baseHref": "/pawtastic-angular/",
+              "deployUrl": "/animal-world-angular/",
+              "baseHref": "/animal-world-angular/",
               "budgets": [
                 {
                   "type": "initial",

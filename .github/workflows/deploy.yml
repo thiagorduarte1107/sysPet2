@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Verifique se seu branch principal é 'main' mesmo
+      - master  # Changed from main to match your actual branch
 
 jobs:
   deploy:
