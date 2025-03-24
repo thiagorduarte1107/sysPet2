@@ -3,30 +3,32 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Verifique se seu branch principal é 'main' mesmo
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: '16'  # Atualização recomendada
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Build project
-        run: npm run build -- --base-href=/pawtastic-angular/
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+      - name: Build
+        run: npm run build:gh-pages  # Corrigido para o script existente
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: dist/pawtastic-angular
-          branch: gh-pages
-          clean: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs  # Mantendo como está no angular.json
+          force_orphan: true
