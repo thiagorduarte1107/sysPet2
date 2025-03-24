@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # Changed from main to match your actual branch
+      - master
 
 jobs:
   deploy:
@@ -15,20 +15,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Atualizado para versão mais recente
+          node-version: '18'
 
       - name: Install dependencies
-        run: npm ci  # Melhor que npm install, pois usa package-lock.json
+        run: npm ci
 
       - name: Install Angular CLI
-        run: npm install -g @angular/cli@12.2.18  # Especificar versão para consistência
+        run: npm install -g @angular/cli@12.2.18
 
       - name: Build
-        run: npm run build:gh-pages  # Corrigido para o script existente
+        run: npm run build:gh-pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs  # Mantendo como está no angular.json
+          publish_dir: ./docs
           force_orphan: true
