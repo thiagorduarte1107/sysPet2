@@ -1,0 +1,13 @@
+<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dog silhouette with Pawtastic style -->
+  <path d="M150 50C111.34 50 80 81.34 80 120C80 158.66 111.34 190 150 190C188.66 190 220 158.66 220 120C220 81.34 188.66 50 150 50Z" fill="#e9d8fd"/>
+  <path d="M95 100C95 94.477 99.477 90 105 90C110.523 90 115 94.477 115 100C115 105.523 110.523 110 105 110C99.477 110 95 105.523 95 100Z" fill="#6b46c1"/>
+  <path d="M185 100C185 94.477 189.477 90 195 90C200.523 90 205 94.477 205 100C205 105.523 200.523 110 195 110C189.477 110 185 105.523 185 100Z" fill="#6b46c1"/>
+  <path d="M130 130C130 124.477 134.477 120 140 120H160C165.523 120 170 124.477 170 130C170 135.523 165.523 140 160 140H140C134.477 140 130 135.523 130 130Z" fill="#6b46c1"/>
+  <path d="M80 120C80 120 60 110 50 130C40 150 60 160 60 160" stroke="#6b46c1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M220 120C220 120 240 110 250 130C260 150 240 160 240 160" stroke="#6b46c1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M100 180C100 180 120 220 150 220C180 220 200 180 200 180" stroke="#6b46c1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M150 190C150 190 140 200 150 210C160 200 150 190 150 190Z" fill="#6b46c1"/>
+  <path d="M120 90C120 90 110 70 120 60C130 50 140 60 140 60" stroke="#6b46c1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M180 90C180 90 190 70 180 60C170 50 160 60 160 60" stroke="#6b46c1" stroke-width="4" stroke-linecap="round"/>
+</svg>

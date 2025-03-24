@@ -18,10 +18,10 @@ jobs:
           node-version: '18'  # Atualizado para versão mais recente
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci  # Melhor que npm install, pois usa package-lock.json
 
       - name: Install Angular CLI
-        run: npm install -g @angular/cli
+        run: npm install -g @angular/cli@12.2.18  # Especificar versão para consistência
 
       - name: Build
         run: npm run build:gh-pages  # Corrigido para o script existente
