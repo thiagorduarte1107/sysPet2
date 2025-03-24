@@ -12,27 +12,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: 'npm'
+          node-version: 14.x
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build project
         run: npm run build:gh-pages
 
-      - name: Copy index.html to 404.html
-        run: cp dist/pawtastic-angular/index.html dist/pawtastic-angular/404.html
-
-      - name: Add .nojekyll file
-        run: touch dist/pawtastic-angular/.nojekyll
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: dist/pawtastic-angular
-          branch: gh-pages
-          clean: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/pawtastic-angular
