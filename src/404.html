@@ -4,8 +4,16 @@
     <meta charset="utf-8">
     <title>Pawtastic - Página Não Encontrada</title>
     <script>
-        // Redirecionar para a aplicação principal
-        window.location.href = 'https://thiagorduarte1107.github.io/pawtastic-angular/';
+        // Redirecionar para a aplicação principal com preservação da rota
+        var segmentCount = 1;
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/#' +
+            l.pathname.slice(1).split('/').slice(segmentCount).join('/') +
+            (l.search ? l.search : '') +
+            l.hash
+        );
     </script>
     <meta http-equiv="refresh" content="0;URL='https://thiagorduarte1107.github.io/pawtastic-angular/'" />
 </head>

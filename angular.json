@@ -38,7 +38,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/",
+              "baseHref": "/pawtastic-angular/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
