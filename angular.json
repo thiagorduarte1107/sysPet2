@@ -45,8 +45,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "deployUrl": "/animal-world-angular/",
-              "baseHref": "/animal-world-angular/",
+              "deployUrl": "/sysPet/",
+              "baseHref": "/sysPet/",
               "budgets": [
                 {
                   "type": "initial",
