@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:gh-pages": "ng build --configuration production --base-href=/animal-world-angular/",
+    "build:gh-pages": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -39,7 +39,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.3.5"
-    "node": "14.x"
+  },
   "engines": {
     "node": "18.x"
   }
