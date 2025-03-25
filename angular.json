@@ -18,13 +18,10 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "options": {
-            "outputPath": "docs",
-            "baseHref": "/sysPet/"
-          },
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "docs",
+            "baseHref": "/sysPet2/main/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -42,7 +39,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/pawtastic-angular/",
+              "baseHref": "/sysPet2/main/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -50,7 +47,6 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-
               "budgets": [
                 {
                   "type": "initial",
