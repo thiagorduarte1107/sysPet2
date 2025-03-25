@@ -1,8 +1,5 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "d7db87f3-7552-49be-b519-d3fa07166752"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -10,7 +7,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
         }
       },
       "root": "",
@@ -18,17 +16,13 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "options": {
-            "outputPath": "docs",
-            "baseHref": "/sysPet/"
-          },
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.json",
+            "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
               "src/favicon.ico",
@@ -36,9 +30,13 @@
               "src/404.html"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -50,7 +48,6 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-
               "budgets": [
                 {
                   "type": "initial",
@@ -63,23 +60,52 @@
                   "maximumError": "20kb"
                 }
               ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "pawtastic-angular:build",
-            "baseHref": "/"
-          },
           "configurations": {
             "production": {
               "browserTarget": "pawtastic-angular:build:production"
+            },
+            "development": {
+              "browserTarget": "pawtastic-angular:build:development"
             }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
           }
         }
       }
     }
   },
-  "defaultProject": "pawtastic-angular"
+  "cli": {
+    "analytics": "65e4de63-28ed-4801-abb3-d23f99ae39fb",
+    "defaultCollection": "@schematics/angular"
+  }
 }
